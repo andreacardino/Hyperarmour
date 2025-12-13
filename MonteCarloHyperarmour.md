@@ -3,7 +3,7 @@
  Let *less(n, n')* be the function denoting this relationship.
  Let *C* be the set of nodes representing character attacks, *E* the set of nodes representing enemy attacks.  
  Then, the stopping condition for a Monte Carlo simulation can be formalised as:  
- ![stopping condition](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/stopping%20condition.svg)
+ ![stopping condition](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/stopping%20condition.svg)  
  In other words, the learning process is over once we know every character attack to either withstand or be interrupted by every enemy attack  
  (should *H(c)* and *D(e)* be equal, it would be the case that *less(c, e) = true*, since the interaction would result in a stagger).  
 
