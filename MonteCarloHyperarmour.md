@@ -1,7 +1,8 @@
  Every player character attack and every enemy attack is represented as a node in a directed acyclic graph (DAG).  
- The edge from node *n* to node *n'* is a boolean, a truth value, indicating whether it is true that *n < n'* or not.  
+ The edge from a node *n* to another node *n'* is a boolean, a truth value, indicating whether *n < n'* or not.  
+ Let *less(n, n')* be the function denoting this relationship.
  Let *C* be the set of nodes representing character attacks, *E* the set of nodes representing enemy attacks.  
- Then, the stopping condition for a Monte Carlo simulation can be formalised as: *∀c ∈ C, ∀e ∈ E: c < e ∨ e < c*.  
+ Then, the stopping condition for a Monte Carlo simulation can be formalised as: *∀c ∈ C, ∀e ∈ E: less(c, e) ∨ less(e, c)*.  
  In other words, the learning process is over once we know every character attack to either withstand or be interrupted by every enemy attack  
  (should *H(c)* and *D(e)* be equal, it would be the case that c < e is true, since the interaction would result in a stagger).  
 
@@ -14,3 +15,10 @@ To provide a visual, digestible example, let's consider a small subset of this m
 In the beginning, before any observation, every cell in the matrix, every edge, is set to false:  
 
 ![initial matrix](https://github.com/andreacardino/Hyperarmour/blob/main/initialMatrix.png)
+
+Then, upon observing an interaction between an element of *C* and an element of *E*, e.g. *c2 < e4*, knowledge is updated by applying transitive closure to the relation space.  
+This transitive closure can be formalised as: ∀i(less(i, c2) V i = c2 -> ∀j(less(e4, j) V j = c2 -> less(i, j) = true)).  
+**The formula captures the 3 inferences triggered by discovering that *less(c2, e4)*:  
+1) everything weaker than c2 must be weaker than e4
+2) everything stronger than e4 must be stronger than c2
+3) everything weaker than c2 must be weaker than everything stronger than e2**
