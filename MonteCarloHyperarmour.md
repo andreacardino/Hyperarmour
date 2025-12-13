@@ -1,4 +1,5 @@
- Every player character attack and every enemy attack is represented as a node in a directed acyclic graph (DAG).\n
+ Every player character attack and every enemy attack is represented as a node in a directed acyclic graph (DAG).
+ 
  The edge from node n to node n' is a boolean, a truth value, indicating whether it is true that n < n' or not.\n
  Let C be the set of nodes representing character attacks, E the set of nodes representing enemy attacks.\n
  Then, the stopping condition for a Monte Carlo simulation can be formalised as: ∀c ∈ C, ∀e ∈ E: c < e ∨ e < c.\n
