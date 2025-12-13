@@ -18,7 +18,7 @@ In the beginning, before any observation, every cell in the matrix, every edge, 
 
 Then, upon observing an interaction between an element of *C* and an element of *E*, e.g. *c2 < e4*, knowledge is updated by applying transitive closure to the relation space.  
 This transitive closure can be formalised as: *∀i(less(i, c2) V i = c2 -> ∀j(less(e4, j) V j = c2 -> less(i, j) = true))*.  
-**The formula captures the 3 inferences triggered by discovering that *less(c2, e4)*:  
+__The formula captures the 3 inferences triggered by discovering that *less(c2, e4)*:  
 1) everything weaker than *c2* must be weaker than *e4*
 2) everything stronger than *e4* must be stronger than *c2*
-3) everything weaker than *c2* must be weaker than everything stronger than e2**
+3) everything weaker than *c2* must be weaker than everything stronger than *e2*__
