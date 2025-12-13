@@ -8,8 +8,9 @@
  (should *H(c)* and *D(e)* be equal, it would be the case that *less(c, e) = true*, since the interaction would result in a stagger).  
 
 *M* being the number of character attacks, *N* the number of enemy attacks, the amount of nodes in the DAG is *M + N*. With the previously assumed data for this system, *M + N* = 300 + 600 = 900.  
-The number of edges between nodes is the square of the amount of nodes, 810,000 with our data.  
-Computationally, this graph of nodes is implemented as a matrix.  
+The number of edges between nodes is the square of the amount of nodes, 810,000 with our data. 
+
+**Computationally, this graph of nodes is implemented as a matrix.** 
 To provide a visual, digestible example, let's consider a small subset of this matrix: 3 character attacks and 6 enemy attacks.  
 *C = {c1, c2, c3}*  
 *E = {e1, e2, e3, e4, e5, e6}*  
@@ -18,8 +19,9 @@ In the beginning, before any observation, every cell in the matrix, every edge, 
 ![initial matrix](https://github.com/andreacardino/Hyperarmour/blob/main/initialMatrix.png)
 
 Then, upon observing an interaction between an element of *C* and an element of *E*, e.g. *c2 < e4*, knowledge is updated by applying transitive closure to the relation space.  
-This transitive closure can be formalised as: *∀i(less(i, c2) V i = c2 -> ∀j(less(e4, j) V j = c2 -> less(i, j) = true))*.  
-**The formula captures the 3 inferences triggered by discovering that *less(c2, e4)*:**  
+This transitive closure can be formalised as:  
+![transitive closure](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/transitive%20closure.svg)  
+**The proposition captures all the inferences triggered by discovering that *less(c2, e4)*:**  
 **1) everything weaker than *c2* must be weaker than *e4***  
 **2) everything stronger than *e4* must be stronger than *c2***  
 **3) everything weaker than *c2* must be weaker than everything stronger than *e2***  
