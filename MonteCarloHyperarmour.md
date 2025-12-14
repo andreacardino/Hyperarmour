@@ -4,8 +4,8 @@
  Let *C* be the set of nodes representing character attacks, *E* the set of nodes representing enemy attacks.  
  Then, **the stopping condition for a Monte Carlo simulation can be defined as:**  
  ![stopping condition](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/stopping%20condition.svg)  
- In other words, the learning process is over once we know every character attack to either withstand or be interrupted by every enemy attack  
- (should *H(c)* and *D(e)* be equal, it would be the case that *less(c, e)* is true, since the interaction would result in a stagger).  
+ In other words, the learning process is over once there is a true edge between every C node and every E node  
+ (should *H(c)* and *D(e)* be equal, it would be the case that the edge from *c* to *e* is true, since the interaction would result in a stagger).  
 
 *M* being the number of character attacks, *N* the number of enemy attacks, the amount of nodes in the DAG is *M + N*. With the previously assumed data for this system, *M + N* = 300 + 600 = 900.  
 The number of edges between nodes is the square of the amount of nodes, 810,000 with our data. 
@@ -26,8 +26,11 @@ The proposition captures all the inferences triggered by discovering that *less(
 **2) everything stronger than *e4* must be stronger than *c2***  
 **3) everything weaker than *c2* must be weaker than everything stronger than *e2***  
 
-Suppose that after the final update, the player has reached this understanding of the ordering:  
+Suppose that after the final update, this is the ordering established:  
 *[e1, e2] < c1 < [e3, e4] < [c2, c3] < [e5, e6]*  
-The matrix would then look like this  
+The matrix would then look like this:  
 
-![final matrix](https://github.com/andreacardino/Hyperarmour/blob/main/final%20matrix.png)
+![final matrix](https://github.com/andreacardino/Hyperarmour/blob/main/final%20matrix.png)  
+
+This matrix satisfies the stopping condition defined above.  
+The Monte Carlo simulation returns the number of observations performed to satisfy the condition.
