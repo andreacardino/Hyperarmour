@@ -54,8 +54,8 @@ public class MonteCarloHyperarmour {
         System.out.printf("Mean = %.3f\n", mean);
         System.out.printf("Std dev = %.3f\n", std);
         System.out.printf("99%% CI = [%.3f, %.3f]\n", ciLower, ciUpper);
-        System.out.printf("Naive complexity (M*N) = %.0f\n", naive);
-        System.out.printf("Reduction vs naive = %.3f%%\n",
+        System.out.printf("Theoretical complexity (M*N) = %.0f\n", naive);
+        System.out.printf("Actual vs theoretical = %.3f%%\n",
                 100.0 * mean / naive);
         long t1 = System.currentTimeMillis();
         System.out.printf("Total runtime: %.1f s\n", (t1 - t0) / 1000.0);
@@ -189,3 +189,4 @@ public class MonteCarloHyperarmour {
         return Math.sqrt(s / (arr.length - 1));
     }
 }
+
