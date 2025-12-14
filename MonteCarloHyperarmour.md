@@ -5,7 +5,7 @@
  Then, **the stopping condition for a Monte Carlo simulation can be defined as:**  
  ![stopping condition](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/stopping%20condition.svg)  
  In other words, the learning process is over once there is a true edge between every C node and every E node  
- (should *H(c)* and *D(e)* be equal, it would be the case that the edge from *c* to *e* is true, since the interaction would result in a stagger).  
+ (should *H(c)* and *D(e)* be equal, it would be the case that the edge from *c* to *e* is true, and the edge from *e* to *c* false, since the interaction would result in a stagger).  
 
 *M* being the number of character attacks, *N* the number of enemy attacks, the amount of nodes in the DAG is *M + N*.  
 With the previously assumed data for this system, *M + N* = 300 + 600 = 900.  
