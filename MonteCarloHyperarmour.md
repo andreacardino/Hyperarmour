@@ -1,7 +1,7 @@
  Every player character attack and every enemy attack is represented as a node in a directed acyclic graph (DAG).  
  The edge from a node *n* to another node *n'* is a boolean, a truth value, indicating whether *n < n'* or not.  
- Let *less(n, n')* be the function denoting this relationship.  
- Let *C* be the set of nodes representing character attacks, *E* the set of nodes representing enemy attacks.  
+ Let ***less(n, n')*** be the function denoting this relationship.  
+ Let ***C*** be the set of nodes representing character attacks, ***E*** the set of nodes representing enemy attacks.  
  Then, **the stopping condition for a Monte Carlo simulation can be defined as:**  
  ![stopping condition](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/stopping%20condition.svg)  
  In other words, the learning process is over once there is a true edge between every C node and every E node  
