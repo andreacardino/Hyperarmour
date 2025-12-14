@@ -33,4 +33,4 @@ The matrix would then look like this:
 
 ![final matrix](https://github.com/andreacardino/Hyperarmour/blob/main/final%20matrix.png)  
 
-This matrix satisfies the stopping condition defined above, and the Monte Carlo simulation returns the number of tests performed to achieve this fulfillment.
+This matrix satisfies the stopping condition defined above, and the Monte Carlo simulation returns the number of observations it took to achieve this fulfillment.
