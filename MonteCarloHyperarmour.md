@@ -21,7 +21,7 @@ In the beginning, before any observation, every cell in the matrix, every edge, 
 
 Then, upon observing the interaction between an element of *C* and an element of *E*, e.g. *c2 < e4*, knowledge is updated by applying transitive closure to the relation space.  
 **This transitive closure can be defined as:**  
-![transitive closure](https://raw.githubusercontent.com/andreacardino/Hyperarmour/refs/heads/main/transitive%20closure.svg)  
+
 The proposition captures all the inferences triggered by discovering that *less(c2, e4)* is true:  
 **1) everything weaker than *c2* must be weaker than *e4***  
 **2) everything stronger than *e4* must be stronger than *c2***  
