@@ -24,8 +24,8 @@ public class MonteCarloMixed {
     //# of enemy attacks
     static final int N = Arrays.stream(DAMAGES).mapToInt(Stance::getCount).sum();
     //Derived totals
-    static final int POISE_MODIFIED_HYPERARMOUR_NODES = L * M;
-    static final int TOTAL_NODES = POISE_MODIFIED_HYPERARMOUR_NODES + N;
+    static final int POISE_MODIFIED_ATTACK_NODES = L * M;
+    static final int TOTAL_NODES = POISE_MODIFIED_ATTACK_NODES + N;
 
     static final Random rnd = new Random();
 
@@ -56,7 +56,7 @@ public class MonteCarloMixed {
         System.out.printf("Mean = %.3f%n", mean);
         System.out.printf("Std dev = %.3f%n", std);
         System.out.printf("99%% CI = [%.3f, %.3f]%n", ciLo, ciHi);
-        System.out.printf("Naive (L*M*N) = %.0f%n", naive);
+        System.out.printf("Naive (L*M*N) = %d%n", naive);
         System.out.printf("Reduction vs naive = %.3f%%", 
         		100.0 * mean / naive);
         long t1 = System.currentTimeMillis();
@@ -159,9 +159,9 @@ public class MonteCarloMixed {
     	return order;
     }
 
-    /** Check whether a poise-modified hyperarmour is fully classified vs all enemy attacks */
+    /** Check whether a poise-modified character attack is fully classified vs all enemy attacks */
     static boolean isAttackFullyClassified(int playerNode, boolean[][] less) {
-        int baseE = POISE_MODIFIED_HYPERARMOUR_NODES;
+        int baseE = POISE_MODIFIED_ATTACK_NODES;
         for (int e = 0; e < N; e++) {
             int eNode = baseE + e;
             if (!less[playerNode][eNode] && !less[eNode][playerNode]) 
@@ -170,7 +170,7 @@ public class MonteCarloMixed {
         return true;
     }
 
-    /** Check whether all hyperarmours modified by a given poise tier are fully classified */
+    /** Check whether all character attacks modified by a given poise tier are fully classified */
     static boolean isPoiseTierFullyClassified(int poiseTier, boolean[][] less) {
         int base = poiseTier * M;
         for (int a = 0; a < M; a++) {
@@ -182,7 +182,7 @@ public class MonteCarloMixed {
 
     /** ∀i(i ∈ PxH -> ∀j(j ∈ E -> less(i,j) OR less(j,i))) */
     static boolean isAllResolved(boolean[][] less) {
-        int baseE = POISE_MODIFIED_HYPERARMOUR_NODES;
+        int baseE = POISE_MODIFIED_ATTACK_NODES;
         for (int aNode = 0; aNode < baseE; aNode++) {
             for (int e = 0; e < N; e++) {
                 int eNode = baseE + e;
@@ -192,4 +192,5 @@ public class MonteCarloMixed {
         }
         return true;
     }
+
 }
