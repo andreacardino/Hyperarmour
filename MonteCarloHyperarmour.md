@@ -27,7 +27,7 @@ The proposition captures all the inferences triggered by discovering that *less(
 **2) everything stronger than *e4* must be stronger than *c2***  
 **3) everything weaker than *c2* must be weaker than everything stronger than *e2***  
 
-Suppose that after the final update, this is the ordering established:  
+Suppose that after the final update this is the ordering established:  
 *[e1, e2] < c1 < [e3, e4] < [c2, c3] < [e5, e6]*  
 The matrix would then look like this:  
 
