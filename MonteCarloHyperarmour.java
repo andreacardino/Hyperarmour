@@ -102,7 +102,7 @@ public class MonteCarloHyperarmour {
     }
     
     /**Populates 0 to M nodes with the hyperarmours of M character attacks.
-     * Populated M to M+N nodes with the stance damages of N enemy attacks*/
+     * Populates M to M+N nodes with the stance damages of N enemy attacks*/
     public static int[] populateNodes(Stance[] hyperarmours, Stance[] damages) {
     	//M hyperarmours, still ordered ascendingly
     	int[] valuesOfHA = getValues(hyperarmours, M);
@@ -189,4 +189,5 @@ public class MonteCarloHyperarmour {
         return Math.sqrt(s / (arr.length - 1));
     }
 }
+
 
